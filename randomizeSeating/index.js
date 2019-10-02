@@ -95,7 +95,7 @@ module.exports = async function(context, req) {
     return;
   }
 
-  const { channel, message } = parsedPayload;
+  const { channel, message, user } = parsedPayload;
 
   const reactions = await getReactions(channel.id, message.ts);
   context.log(reactions);
@@ -108,6 +108,6 @@ module.exports = async function(context, req) {
     const userNames = await mapIdsToNames(reaction.users);
     await sendMessage(channel.id, message.ts, userNames);
   } else {
-    await sendEphemeral(channel.id, message.user);
+    await sendEphemeral(channel.id, user.id);
   }
 };
