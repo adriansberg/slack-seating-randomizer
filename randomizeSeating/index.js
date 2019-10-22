@@ -9,7 +9,9 @@ const FOOD_EMOJIS = [
   'hotdog',
   'taco',
   'burrito',
-  'sushi'
+  'sushi',
+  'fried_egg',
+  'cooking'
 ];
 
 const client = new WebClient(process.env.TOKEN);
